@@ -6,6 +6,7 @@ import 'package:pas_moobile_11pplg_18/pages/initial_page.dart';
 import 'package:pas_moobile_11pplg_18/pages/login_page.dart';
 import 'package:pas_moobile_11pplg_18/pages/product_detail_page.dart';
 import 'package:pas_moobile_11pplg_18/pages/product_page.dart';
+import 'package:pas_moobile_11pplg_18/pages/register_page.dart';
 import 'package:pas_moobile_11pplg_18/pages/splash_screen.dart';
 import 'package:pas_moobile_11pplg_18/routes/Routes.dart';
 
@@ -17,7 +18,11 @@ class AppPages {
       binding: SplashscreenBinding(),
     ),
     GetPage(name: Routes.login, page: () => LoginPage(), binding: AppBinding()),
-    GetPage(name: Routes.initial, page: () => InitialPage(), binding: AppBinding()),
+    GetPage(
+      name: Routes.initial,
+      page: () => InitialPage(),
+      binding: AppBinding(),
+    ),
     GetPage(
       name: Routes.productDetail,
       page: () => ProductDetailPage(product: Get.arguments),
@@ -30,6 +35,11 @@ class AppPages {
     GetPage(
       name: Routes.favorites,
       page: () => FavoritesPage(),
+      binding: AppBinding(),
+    ),
+    GetPage(
+      name: Routes.register,
+      page: () => RegisterPage(),
       binding: AppBinding(),
     ),
   ];

@@ -33,8 +33,4 @@ class ProductsController extends GetxController {
     }
   }
 
-  /// helper to force UI refresh if needed
-  void refresh() {
-    products.refresh();
-  }
 }

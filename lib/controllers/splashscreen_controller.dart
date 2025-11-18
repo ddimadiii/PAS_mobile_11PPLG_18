@@ -16,7 +16,7 @@ class SplashscreenController extends GetxController {
     final token = prefs.getString('token');
 
     if (token == null) {
-      Get.offAllNamed(Routes.login);
+      Get.offAllNamed(Routes.register);
     } else {
       Get.offAllNamed(Routes.initial);
     }

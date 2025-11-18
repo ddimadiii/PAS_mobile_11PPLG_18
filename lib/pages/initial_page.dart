@@ -28,57 +28,19 @@ class InitialPage extends StatelessWidget {
           backgroundColor: mainCol,
           centerTitle: true,
         ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 23, 44, 63),
-                ),
-                child: Text(
-                  "Menu",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.calculate),
-                title: const Text("Kalkulator"),
-                onTap: () {
-                  nav.changeTab(0);
-                  Get.back();
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.sports_soccer),
-                title: const Text("Football"),
-                onTap: () {
-                  nav.changeTab(1);
-                  Get.back();
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.person),
-                title: const Text("Profile"),
-                onTap: () {
-                  nav.changeTab(2);
-                  Get.back();
-                },
-              ),
-            ],
-          ),
-        ),
+        
         body: pages[nav.currentIndex.value],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: nav.currentIndex.value,
           onTap: nav.changeTab,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.calculate, size: 25),
-              label: 'Kalkulator',
+              icon: Icon(Icons.home, size: 25),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.sports_soccer, size: 25),
-              label: 'Football',
+              icon: Icon(Icons.bookmark, size: 25),
+              label: 'Favorites',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person, size: 25),

@@ -4,13 +4,13 @@ import 'package:pas_moobile_11pplg_18/controllers/auth_controller.dart';
 import 'package:pas_moobile_11pplg_18/widgets/button_widget.dart';
 import 'package:pas_moobile_11pplg_18/widgets/textfield_widget.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
-  final AuthController controller = Get.find<AuthController>();
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final AuthController controller = Get.find();
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -30,8 +30,8 @@ class LoginPage extends StatelessWidget {
                     Image.asset('assets/images/cart.png', height: 150),
 
                     const SizedBox(height: 20),
-                    Text(
-                      "Login",
+                    const Text(
+                      "Register",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -40,21 +40,35 @@ class LoginPage extends StatelessWidget {
 
                     const SizedBox(height: 40),
 
-                    // Username
                     AppTextField(
                       label: "Username",
-                      prefixIcon: const Icon(Icons.person_rounded),
+                      prefixIcon: const Icon(Icons.person_outline_rounded),
                       controller: controller.username,
                     ),
+
                     const SizedBox(height: 16),
 
-                    // Password
+                    AppTextField(
+                      label: "Full Name",
+                      prefixIcon: const Icon(Icons.badge_rounded),
+                      controller: controller.fullName,
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    AppTextField(
+                      label: "Email",
+                      prefixIcon: const Icon(Icons.email_rounded),
+                      controller: controller.email,
+                    ),
+
+                    const SizedBox(height: 16),
+
                     Obx(() => AppTextField(
                           label: "Password",
-                          prefixIcon: const Icon(Icons.lock_rounded),
+                          prefixIcon: const Icon(Icons.lock_outline_rounded),
                           controller: controller.password,
-                          obscureText: !controller
-                              .isPasswordVisible.value, // di-balik biar lebih simpel
+                          obscureText: !controller.isPasswordVisible.value,
                           suffixIcon: IconButton(
                             icon: Icon(
                               controller.isPasswordVisible.value
@@ -69,23 +83,21 @@ class LoginPage extends StatelessWidget {
 
                     const SizedBox(height: 25),
 
-                    // LOGIN BUTTON
                     Obx(() => controller.isLoading.value
                         ? const Padding(
-                            padding: EdgeInsets.all(12.0),
+                            padding: EdgeInsets.all(12),
                             child: CircularProgressIndicator(),
                           )
                         : AppButton(
-                            text: "Login",
-                            onPressed: controller.login,
+                            text: "Register",
+                            onPressed: controller.register,
                           )),
 
                     const SizedBox(height: 16),
 
-                    // GO TO REGISTER
                     TextButton(
-                      onPressed: () => Get.toNamed("/register"),
-                      child: const Text("Belum punya akun? Register"),
+                      onPressed: () => Get.toNamed("/login"),
+                      child: const Text("Sudah punya akun? Login"),
                     ),
                   ],
                 ),
